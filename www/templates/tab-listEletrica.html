@@ -1,0 +1,108 @@
+<ion-view view-title="Lista Elétricaaa">
+  <ion-content class="padding">
+        <br><br><br>    <br><br><br>
+    <button class="button button-block button-positive" ng-click="abrirModalEletrica();">
+  Novo
+</button>
+    <ion-list>
+      <ion-item class="item-remove-animate item-avatar item-icon-right"
+        ng-repeat="it in listagemEletrica" type="item-text-wrap" href="#/tab/chats/{{chat.id}}" ng-click="alterarModalEletrica(it)">
+        <img ng-src="{{it.img}}">
+        <p>{{it.codigoTuc}} - {{it.descricaoTuc}} - {{it.local}}</p>
+        <i class="icon ion-chevron-right icon-accessory"></i>
+        <ion-option-button class="button-assertive" ng-click="excluirListagemEletrica(it)">
+          Delete
+        </ion-option-button>
+
+      </ion-item>
+    </ion-list>
+
+    <script id="my-modal.html" type="text/ng-template">
+       <ion-modal-view>
+       <ion-header-bar class="bar bar-header bar-positive">
+             <h1 class="title">Item</h1>
+             <button class="button button-clear button-primary" ng-click="closeModalEletrica()">Cancel</button>
+           </ion-header-bar>
+         <ion-content>
+             <div class="list">
+                   <label class="item item-input">
+                     <span class="input-label">Local</span>
+                     <input type="text" ng-model="listagemEletrica.local">
+                   </label>
+                   <label class="item item-input">
+                     <span class="input-label">Descrição Tuc</span>
+                     <select class="item item-input item-select" name="comboUm"
+                       ng-selected="selected(request);"
+                       ng-model="request" ng-options="request.name for request in comboUm" >
+                       <option value="">--Please select--</option>
+                     </select>
+                   </label>
+
+                   <label class="item item-input">
+                      <span class="input-label">Campo A1</span>
+                     <select class="item item-input item-select" name="comboDois"
+                       ng-selected="selectedItemDois(itemComboDois);" ng-hide="request.name == undefined"
+                       ng-model="itemComboDois" ng-options="item.descricao for item in comboDoisFiltrado" >
+                       <option value="">--Please select--</option>
+                     </select>
+                   </label>
+
+                   <label class="item item-input">
+                      <span class="input-label">Campo A2</span>
+                     <select class="item item-input item-select" name="comboTres"
+                       ng-selected="selectedItemTres(itemComboTres);" ng-hide="request.name == undefined"
+                       ng-model="listagemELetrica.descricaoA2" ng-options="item.descricao for item in comboTresFiltrado" >
+                       <option value="">--Please select--</option>
+                     </select>
+                   </label>
+
+                   <label class="item item-input">
+                      <span class="input-label">Campo A3</span>
+                     <select class="item item-input item-select" name="comboQuatro"
+                       ng-selected="selectedItemQuatro(itemComboQuatro);" ng-hide="request.name == undefined"
+                       ng-model="listagemELetrica.descricaoA3" ng-options="item.descricao for item in comboQuatroFiltrado" >
+                       <option value="">--Please select--</option>
+                     </select>
+                   </label>
+
+                   <label class="item item-input">
+                      <span class="input-label">Campo A4</span>
+                     <select class="item item-input item-select" name="comboQuinto"
+                       ng-selected="selectedItemQuinto(itemComboQuinto);" ng-hide="request.name == undefined"
+                       ng-model="listagemELetrica.descricaoA4" ng-options="item.descricao for item in comboQuintoFiltrado" >
+                       <option value="">--Please select--</option>
+                     </select>
+                   </label>
+
+                    <label class="item item-input">
+                      <span class="input-label">Campo A5</span>
+                      <select class="item item-input item-select" name="comboSexto"
+                      ng-selected="selectedItemSexto(itemComboSexto);" ng-hide="request.name == undefined"
+                      ng-model="listagemELetrica.descricaoA5" ng-options="item.descricao for item in comboSextoFiltrado" >
+                      <option value="">--Please select--</option>
+                    </select>
+                  </label>
+
+
+                 <label class="item item-input">
+                   <span class="input-label">Campo A6</span>
+                   <select class="item item-input item-select" name="comboSetimo"
+                   ng-selected="selectedItemSetimo(itemComboSetimo);" ng-hide="request.name == undefined"
+                   ng-model="listagemELetrica.descricaoA6" ng-options="item.descricao for item in comboSetimoFiltrado" >
+                   <option value="">--Please select--</option>
+                 </select>
+               </label>
+
+               <label class="item item-input">
+                 <span class="input-label">Obs</span>
+                 <input type="text" ng-model="listagemEletrica.obs">
+               </label>
+           </div>
+           <button class="button button-block button-positive" ng-click="salvarListagemEletrica(listagemEletrica)">Gravar</button>
+         </ion-content>
+       </ion-modal-view>
+
+    </script>
+
+  </ion-content>
+</ion-view>

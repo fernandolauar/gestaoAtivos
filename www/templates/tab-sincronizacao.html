@@ -1,0 +1,19 @@
+<ion-view view-title="Sincronização">
+  <ion-content>
+    <ion-list>
+      <ion-radio ng-model="Sincronizacao.lista" ng-value="'E'" checked="checked">Lista Elétrica</ion-radio>
+      <ion-radio ng-model="Sincronizacao.lista" ng-value="'M'">Lista Mecânica</ion-radio>
+    </ion-list>
+    <button class="button button-block button-assertive icon ion-ios-cloud-upload" ng-click="salvarSincronizacao();">
+    Sincronizar
+  </button>
+    <ion-list>
+      <ion-item class="item-remove-animate item-avatar item-icon-right"
+        ng-repeat="it in sincronizacao" type="item-text-wrap" href="#/tab/chats/{{chat.id}}">
+
+        <p>{{it.data}}</p>
+
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>
